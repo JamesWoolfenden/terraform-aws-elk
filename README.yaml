@@ -1,0 +1,68 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+# Name of this project
+name: terraform-aws-elk
+# Tags of this project
+tags:
+  - aws
+  - terraform
+  - terraform-modules
+  - elasticSearch
+# Categories of this project
+categories:
+  - terraform-modules/logging
+# Logo for this project
+#logo: docs/slalom-logo.png
+# License of this project
+license: "APACHE2"
+# Copyrights
+copyrights:
+  - name: "Slalom, LLC"
+    url: "https://slalom.com"
+    year: "2019"
+# Canonical GitHub repo
+github_repo: JamesWoolfenden/terraform-aws-elk
+# Badges to display
+badges:
+  - name: "Build Status"
+    image: "https://travis-ci.com/JamesWoolfenden/terraform-aws-elk.svg?branch=master"
+    url: "https://travis-ci.com/JamesWoolfenden/terraform-aws-elk"
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-elk.svg"
+    url: "https://github.com/JamesWoolfenden/terraform-aws-elk/releases/latest"
+related:
+  - name: "Packages"
+    description: "Cloud Posse installer and distribution of native apps"
+    url: "https://github.com/cloudposse/packages"
+  - name: "Dev Harness"
+    description: "Cloud Posse Local Development Harness"
+    url: "https://github.com/cloudposse/dev"
+
+# Short description of this project
+description: |-
+  This is an old example for making an ELK stack server.
+# Introduction to the project
+introduction: |-
+#  This is an introduction.
+# How to use this project
+usage: |-
+  Include this repository as a module in your existing terraform code:
+
+  ```hcl
+  module "s3" {
+  source      = "JamesWoolfenden/s3/elk"
+  version     = "0.0.4"
+  common_tags = "${var.common_tags}"
+  }
+  ```
+
+include:
+  - "docs/targets.md"
+  - "docs/terraform.md"
+# Contributors to this project
+contributors:
+  - name: "James Woolfenden"
+    github: "jameswoolfenden"
