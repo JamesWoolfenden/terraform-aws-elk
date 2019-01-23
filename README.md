@@ -12,8 +12,6 @@ This project uses the "build-harness" a modified version of the project ["SweetO
 
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
-## Introduction
-
 ## Usage
 
 Include this repository as a module in your existing terraform code:
