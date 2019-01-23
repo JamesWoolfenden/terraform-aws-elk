@@ -66,9 +66,6 @@ Check out these related projects.
 
 File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-aws-elk/issues).
 
-## Slack Community
-
-You can join the Cloudposse community [Open Source Community][slack] on Slack.
 
 ## Contributing
 
@@ -114,7 +111,6 @@ See [LICENSE](LICENSE) for full details.
 [logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
 [website]: https://slalom.com
 [github]: https://github.com/jameswoolfenden
-[slack]: https://cpco.io/slack
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/Slalom
 
