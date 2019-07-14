@@ -8,8 +8,6 @@ This is an old example for making an ELK stack server.
 
 ---
 
-This project uses the "build-harness" a modified version of the project ["SweetOps"](https://cpco.io/sweetops) from Cloudposse. Sweet indeed.
-
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Usage
@@ -18,9 +16,9 @@ Include this repository as a module in your existing terraform code:
 
 ```hcl
 module "s3" {
-source      = "JamesWoolfenden/s3/elk"
+source      = "JamesWoolfenden/aws/elk"
 version     = "0.0.4"
-common_tags = "${var.common_tags}"
+common_tags = var.common_tags
 }
 ```
 
@@ -36,19 +34,11 @@ common_tags = "${var.common_tags}"
 | subnet_type | A string tag to identity the subnet to use | string | - | yes |
 | vpc_cidr | Tge cidr range to identity the VPC to use | string | - | yes |
 
-## Related Projects
-
-Check out these related projects.
-
-- [Packages](https://github.com/cloudposse/packages) - Cloud Posse installer and distribution of native apps
-- [Dev Harness](https://github.com/cloudposse/dev) - Cloud Posse Local Development Harness
-
 ## Help
 
 **Got a question?**
 
 File a GitHub [issue](https://github.com/JamesWoolfenden/terraform-aws-elk/issues).
-
 
 ## Contributing
 
@@ -66,27 +56,26 @@ Copyright © 2019-2019 [Slalom, LLC](https://slalom.com)
 
 See [LICENSE](LICENSE) for full details.
 
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
 
-      https://www.apache.org/licenses/LICENSE-2.0
+<https://www.apache.org/licenses/LICENSE-2.0>
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
 
 ### Contributors
 
   [![James Woolfenden][jameswoolfenden_avatar]][jameswoolfenden_homepage]<br/>[James Woolfenden][jameswoolfenden_homepage] |
-
 
   [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
   [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
@@ -101,5 +90,4 @@ See [LICENSE](LICENSE) for full details.
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-elk&url=https://github.com/JamesWoolfenden/terraform-aws-elk
 [share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-aws-elk
 [share_facebook]: https://facebook.com/sharer/sharer.php?u=https://github.com/JamesWoolfenden/terraform-aws-elk
-[share_googleplus]: https://plus.google.com/share?url=https://github.com/JamesWoolfenden/terraform-aws-elk
 [share_email]: mailto:?subject=terraform-aws-elk&body=https://github.com/JamesWoolfenden/terraform-aws-elk
