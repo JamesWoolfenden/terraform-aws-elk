@@ -23,7 +23,6 @@ variable "instance_type" {
   description = "The AWS instance size for the ELK server"
 }
 
-
 variable "ami_name" {
   type        = string
   description = "Partial string to match the target AMI"

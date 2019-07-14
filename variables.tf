@@ -1,35 +1,38 @@
 variable "common_tags" {
-  type        = "map"
+  type        = map
   description = "A set of tags"
 }
 
 variable "key_name" {
   description = "The namne of the ssh key"
-  type        = "string"
+  type        = string
 }
 
 variable "subnet_type" {
   description = "A string tag to identity the subnet to use"
-  type        = "string"
+  type        = string
 }
 
 variable "vpc_cidr" {
   description = "Tge cidr range to identity the VPC to use"
-  type        = "string"
+  type        = string
 }
 
 variable "instance_type" {
   description = "The AWS instance size for the ELK server"
-  type        = "string"
+  type        = string
 }
 
 variable "ami_name" {
   description = "Partial string to match the target AMI"
-  type        = "string"
+  type        = string
 }
 
-variable depends_on {
-  default     = []
-  description = "This is a way to make a module depends on, which isnt built to depend on"
-  type        = "list"
+variable "ssh_cidrs" {
+  type=list(string)
+  description = ""
+}
+
+variable "ingress_cidrs" {
+  type=list(string)
 }

@@ -8,7 +8,7 @@ resource "aws_security_group" "elk" {
     from_port   = 9200
     to_port     = 9200
     protocol    = "tcp"
-    cidr_blocks = [var.ingress_cdrs]
+    cidr_blocks = var.ingress_cidrs
   }
 
   # logstash port
@@ -16,7 +16,7 @@ resource "aws_security_group" "elk" {
     from_port   = 5043
     to_port     = 5044
     protocol    = "tcp"
-    cidr_blocks = [var.ingress_cdrs]
+    cidr_blocks = var.ingress_cidrs
   }
 
   # kibana ports
@@ -24,7 +24,7 @@ resource "aws_security_group" "elk" {
     from_port   = 5601
     to_port     = 5601
     protocol    = "tcp"
-    cidr_blocks = [var.ingress_cdrs]
+    cidr_blocks = var.ingress_cidrs
   }
 
   # ssh
@@ -32,7 +32,7 @@ resource "aws_security_group" "elk" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.ssh_cdrs]
+    cidr_blocks = var.ssh_cidrs
   }
 
   # outbound

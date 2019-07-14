@@ -2,7 +2,7 @@ resource "aws_instance" "elk" {
   ami                         = data.aws_ami.redhat.id
   instance_type               = var.instance_type
   key_name                    = var.key_name
-  subnet_id                   = data.aws_subnet_ids.subnets.ids[0]
+  subnet_id                   = element(data.aws_subnet_ids.subnets.ids,0)
   associate_public_ip_address = "true"
   user_data                   = file("${path.module}/config/userdata")
 
