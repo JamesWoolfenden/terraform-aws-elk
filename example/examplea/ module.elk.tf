@@ -5,7 +5,6 @@ module "elk" {
   ssh_cidrs     = ["0.0.0.0/0"]
   instance_type = var.instance_type
   common_tags   = var.common_tags
-  key_name      = var.key_name
-  subnet_type   = var.subnet_type
+  subnet_tag    = var.subnet_tag
   vpc_cidr      = var.vpc_cidr
 }

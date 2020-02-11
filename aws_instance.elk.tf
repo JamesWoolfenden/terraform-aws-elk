@@ -1,8 +1,8 @@
 resource "aws_instance" "elk" {
-  ami                         = data.aws_ami.redhat.id
-  instance_type               = var.instance_type
-  key_name                    = var.key_name
-  subnet_id                   = element(data.aws_subnet_ids.subnets.ids,0)
+  ami           = data.aws_ami.redhat.id
+  instance_type = var.instance_type
+
+  subnet_id                   = element(data.aws_subnet_ids.subnets.ids, 0)
   associate_public_ip_address = "true"
   user_data                   = file("${path.module}/config/userdata")
 
@@ -10,8 +10,5 @@ resource "aws_instance" "elk" {
     aws_security_group.elk.id,
   ]
 
-  tags = merge(var.common_tags,
-  map("Name", "${upper(substr(var.common_tags["environment"], 0, 1))}-ELK-EC2"))
-
-  depends_on = ["aws_security_group.elk"]
+  tags = var.common_tags
 }

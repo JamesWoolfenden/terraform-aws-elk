@@ -3,12 +3,7 @@ variable "common_tags" {
   description = "A set of tags"
 }
 
-variable "key_name" {
-  type        = string
-  description = "The namne of the ssh key"
-}
-
-variable "subnet_type" {
+variable "subnet_tag" {
   type        = string
   description = "A string tag to identity the subnet to use"
 }

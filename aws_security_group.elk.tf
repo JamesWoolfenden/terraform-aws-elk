@@ -1,37 +1,36 @@
 resource "aws_security_group" "elk" {
   name        = "elk"
-  description = "All all elasticsearch traffic"
+  description = "All all Elasticsearch traffic"
   vpc_id      = data.aws_vpc.vpc.id
 
-  # elasticsearch port
   ingress {
     from_port   = 9200
     to_port     = 9200
-    protocol    = "tcp"
+    protocol    = "elasticsearch"
     cidr_blocks = var.ingress_cidrs
   }
 
-  # logstash port
   ingress {
     from_port   = 5043
     to_port     = 5044
     protocol    = "tcp"
+    description = "logstash"
     cidr_blocks = var.ingress_cidrs
   }
 
-  # kibana ports
   ingress {
     from_port   = 5601
     to_port     = 5601
     protocol    = "tcp"
+    description = "kibana"
     cidr_blocks = var.ingress_cidrs
   }
 
-  # ssh
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
+    description = "ssh"
     cidr_blocks = var.ssh_cidrs
   }
 

@@ -3,18 +3,13 @@ variable "common_tags" {
   description = "A set of tags"
 }
 
-variable "key_name" {
-  description = "The namne of the ssh key"
-  type        = string
-}
-
-variable "subnet_type" {
-  description = "A string tag to identity the subnet to use"
+variable "subnet_tag" {
+  description = "A string tag to identity the sub-net to use"
   type        = string
 }
 
 variable "vpc_cidr" {
-  description = "Tge cidr range to identity the VPC to use"
+  description = "The CIDR range to identity the VPC to use"
   type        = string
 }
 
@@ -29,10 +24,11 @@ variable "ami_name" {
 }
 
 variable "ssh_cidrs" {
-  type=list(string)
-  description = ""
+  description = "A range that is allowed to ssh on to the ELK stack"
+  type        = list(string)
 }
 
 variable "ingress_cidrs" {
-  type=list(string)
+  description = "A range that is allowed to access ELK stack"
+  type        = list(string)
 }
