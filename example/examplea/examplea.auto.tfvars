@@ -2,8 +2,7 @@ common_tags = {
   environment = "dev"
 }
 
-instance_type = "t3.micro"
-ami_name      = "RHEL-BASE-*"
+instance_type = "t2.large"
+ami_name      = "elk-1-*"
 subnet_tag    = "private"
-key_name      = "id_rsa.elastic"
-vpc_cidr      = "10.0.0.0/16"
+vpc_cidr      = "10.22.0.0/16"

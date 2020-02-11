@@ -3,16 +3,25 @@
 
 # terraform-aws-elk [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-elk.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-elk) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-elk.svg)](https://github.com/JamesWoolfenden/terraform-aws-elk/releases/latest)
 
-This is an old example for making an ELK stack server.
-Updating to use amazon linux2 packer ami, and autoscaling.
+This is a basic example for making an ELK stack server.
+Updating to use Amazon linux2 Packer ami, and auto-scaling.
 
 ---
 
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
+Build you AMI's first.
+In the *Packer* folder :
+
+```cli
+$ packer build .\packer\
+```
+
+<https://www.elastic.co/guide/en/elastic-stack-get-started/7.6/get-started-elastic-stack.html#install-elasticsearch>
+
 ## Usage
 
-Include this repository as a module in your existing terraform code:
+Include this repository as a module in your existing Terraform code:
 
 ```hcl
 module "s3" {
@@ -21,7 +30,9 @@ version     = "0.0.4"
 common_tags = var.common_tags
 }
 ```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |

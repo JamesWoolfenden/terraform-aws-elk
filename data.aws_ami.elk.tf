@@ -1,4 +1,4 @@
-data "aws_ami" "redhat" {
+data "aws_ami" "elk" {
   most_recent = true
 
   filter {
