@@ -3,9 +3,14 @@ variable "common_tags" {
   description = "A set of tags"
 }
 
-variable "subnet_tag" {
+variable "private_subnet_tag" {
   type        = string
-  description = "A string tag to identity the sub-net to use"
+  description = "A string tag to identity the provate sub-net to use"
+}
+
+variable "public_subnet_tag" {
+  type        = string
+  description = "A string tag to identity the public sub-net to use"
 }
 
 variable "vpc_cidr" {

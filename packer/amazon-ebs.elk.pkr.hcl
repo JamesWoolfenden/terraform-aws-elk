@@ -9,7 +9,7 @@ source "amazon-ebs" "elk" {
     owners= ["amazon"]
     most_recent= true
   }
-    
+
   instance_type= "t2.micro"
   ssh_username= "ec2-user"
   ami_name= "elk-1-{{timestamp}}"
