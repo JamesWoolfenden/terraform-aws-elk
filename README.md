@@ -1,4 +1,3 @@
-
 [![Slalom][logo]](https://slalom.com)
 
 # terraform-aws-elk [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-elk.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-elk) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-elk.svg)](https://github.com/JamesWoolfenden/terraform-aws-elk/releases/latest)
@@ -9,6 +8,8 @@ Updated to use Amazon linux2 Packer AMI, and Auto-scaling.
 ---
 
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
+
+## Introduction
 
 Build you AMI's first.
 In the *Packer* folder :
@@ -26,7 +27,7 @@ Include this repository as a module in your existing Terraform code:
 
 ```hcl
 module "elk" {
-  source        = "JamesWoolfenden/aws/elk
+  source        = "JamesWoolfenden/elk/aws
   version       = "0.2.6"
   ami_name      = var.ami_name
   ingress_cidrs = ["0.0.0.0/0"]
