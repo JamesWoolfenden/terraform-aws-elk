@@ -1,6 +1,11 @@
 [![Slalom][logo]](https://slalom.com)
 
-# terraform-aws-elk [![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-elk.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-elk) [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-elk.svg)](https://github.com/JamesWoolfenden/terraform-aws-elk/releases/latest)
+# terraform-aws-elk
+
+[![Build Status](https://travis-ci.com/JamesWoolfenden/terraform-aws-elk.svg?branch=master)](https://travis-ci.com/JamesWoolfenden/terraform-aws-elk)
+[![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-elk.svg)](https://github.com/JamesWoolfenden/terraform-aws-elk/releases/latest)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![pre-commit](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
 
 This is a basic example for making an ELK stack server.
 Updated to use Amazon linux2 Packer AMI, and Auto-scaling.
@@ -50,6 +55,7 @@ ssh -i mynew_key ec2-user@10.22.7.233
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Providers
 
 | Name | Version |
@@ -63,10 +69,12 @@ ssh -i mynew_key ec2-user@10.22.7.233
 | ami\_name | Partial string to match the target AMI | `string` | n/a | yes |
 | asg | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}<br></pre> | no |
 | common\_tags | A set of tags | `map` | n/a | yes |
+| encrypted | Root block device encryption | `bool` | `true` | no |
 | ingress\_cidrs | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
 | instance\_type | The AWS instance size for the ELK server | `string` | n/a | yes |
+| private\_subnet\_tag | A string tag to identity the private sub-net to use | `string` | n/a | yes |
+| public\_subnet\_tag | A string tag to identity the public sub-net to use | `string` | n/a | yes |
 | ssh\_cidrs | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a | yes |
-| subnet\_tag | A string tag to identity the sub-net to use | `string` | n/a | yes |
 | vpc\_cidr | The CIDR range to identity the VPC to use | `string` | n/a | yes |
 
 ## Outputs
@@ -74,8 +82,10 @@ ssh -i mynew_key ec2-user@10.22.7.233
 | Name | Description |
 |------|-------------|
 | autoscaling | n/a |
-| launch\_config | n/a |
+| launch\_conf | n/a |
+| lb | n/a |
 | security\_group | n/a |
+| security\_group\_lb | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Help
@@ -104,6 +114,7 @@ server.host: <servers ip>
 
 - app config in user data
 - get data <https://www.elastic.co/blog/getting-aws-logs-from-s3-using-filebeat-and-the-elastic-stack?blade=kibanafeed>
+- automate config above
 
 **Got a question?**
 

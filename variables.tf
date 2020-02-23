@@ -38,3 +38,9 @@ variable "ingress_cidrs" {
   description = "A range that is allowed to access ELK stack"
   type        = list(string)
 }
+
+variable "encrypted" {
+  description = "Root block device encryption"
+  type        = bool
+  default     = true
+}
