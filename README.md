@@ -54,7 +54,8 @@ aws ec2-instance-connect send-ssh-public-key --region us-west-2 --instance-id i-
 ssh -i mynew_key ec2-user@10.22.7.233
 ```
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Providers
 
 | Name | Version |
@@ -68,6 +69,7 @@ ssh -i mynew_key ec2-user@10.22.7.233
 | ami\_name | Partial string to match the target AMI | `string` | n/a | yes |
 | asg | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}<br></pre> | no |
 | common\_tags | A set of tags | `map` | n/a | yes |
+| encrypted | Root block device encryption | `bool` | `true` | no |
 | ingress\_cidrs | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
 | instance\_type | The AWS instance size for the ELK server | `string` | n/a | yes |
 | private\_subnet\_tag | A string tag to identity the private sub-net to use | `string` | n/a | yes |
@@ -112,6 +114,7 @@ server.host: <servers ip>
 
 - app config in user data
 - get data <https://www.elastic.co/blog/getting-aws-logs-from-s3-using-filebeat-and-the-elastic-stack?blade=kibanafeed>
+- automate config above
 
 **Got a question?**
 

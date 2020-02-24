@@ -10,4 +10,7 @@ resource "aws_launch_configuration" "elk" {
     create_before_destroy = true
   }
 
+  root_block_device {
+    encrypted = var.encrypted
+  }
 }
