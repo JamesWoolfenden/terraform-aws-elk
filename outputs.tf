@@ -1,20 +1,25 @@
 
 output "autoscaling" {
-  value = aws_autoscaling_group.elk
+  description = "Details of autoscaling"
+  value       = aws_autoscaling_group.elk
 }
 
 output "launch_conf" {
-  value = aws_launch_configuration.elk
+  description = "Details of Launch Configuration"
+  value       = aws_launch_configuration.elk
 }
 
 output "security_group" {
-  value = aws_security_group.elk
+  description = "Details of the Security Group"
+  value       = aws_security_group.elk
 }
 
 output "security_group_lb" {
-  value = aws_security_group.lb
+  description = "Details of the Security Group of the load balancer"
+  value       = aws_security_group.lb
 }
 
 output "lb" {
-  value = aws_elb.elk
+  description = "Details of the load balancer"
+  value       = aws_elb.elk
 }

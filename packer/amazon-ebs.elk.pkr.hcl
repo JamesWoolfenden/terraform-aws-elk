@@ -16,8 +16,10 @@ source "amazon-ebs" "elk" {
   ami_description= "elk 1"
   ami_virtualization_type= "hvm"
   temporary_key_pair_name= "amazon-packer-{{timestamp}}"
-  vpc_id= "vpc-0b4b473e65c6cec8b"
-  subnet_id="subnet-01ddc233a5de59080"
+  region="eu-west-2"
+  vpc_id= "vpc-0e2e925de622375b5"
+  subnet_id="subnet-05f8f3c120238ca8d"
+  #spot_price="auto"
   associate_public_ip_address= true
   run_tags {
     Name= "amazon-elk"

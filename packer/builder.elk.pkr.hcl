@@ -4,6 +4,6 @@ sources=[
   ]
 
   provisioner "shell" {
-     scripts = ["packer\\install-elk.sh"]
+     scripts = ["packer/install-elk.sh"]
   }
 }

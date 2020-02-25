@@ -16,11 +16,19 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 ## Introduction
 
-Build you AMI's first.
+Build you AMI's first. The example uses HCL2 which is in beta, you will have to add your own region,vpc_id and subnet_id. Your subnet needs to ssh'able.
+
 In the *Packer* folder :
 
 ```cli
 $ packer build .\packer\
+....
+```
+
+or
+
+```cli
+$ packer build ./packer/
 ....
 ```
 
@@ -54,8 +62,7 @@ aws ec2-instance-connect send-ssh-public-key --region us-west-2 --instance-id i-
 ssh -i mynew_key ec2-user@10.22.7.233
 ```
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
 
 | Name | Version |
@@ -81,13 +88,14 @@ ssh -i mynew_key ec2-user@10.22.7.233
 
 | Name | Description |
 |------|-------------|
-| autoscaling | n/a |
-| launch\_conf | n/a |
-| lb | n/a |
-| security\_group | n/a |
-| security\_group\_lb | n/a |
+| autoscaling | Details of autoscaling |
+| launch\_conf | Details of Launch Configuration |
+| lb | Details of the load balancer |
+| security\_group | Details of the Security Group |
+| security\_group\_lb | Details of the Security Group of the load balancer |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Help
 
 To check is using systemd or not
