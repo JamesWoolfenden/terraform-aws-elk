@@ -62,38 +62,8 @@ aws ec2-instance-connect send-ssh-public-key --region us-west-2 --instance-id i-
 ssh -i mynew_key ec2-user@10.22.7.233
 ```
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Providers
-
-| Name | Version |
-|------|---------|
-| aws | n/a |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
-| ami\_name | Partial string to match the target AMI | `string` | n/a | yes |
-| asg | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}<br></pre> | no |
-| common\_tags | A set of tags | `map` | n/a | yes |
-| encrypted | Root block device encryption | `bool` | `true` | no |
-| ingress\_cidrs | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
-| instance\_type | The AWS instance size for the ELK server | `string` | n/a | yes |
-| private\_subnet\_tag | A string tag to identity the private sub-net to use | `string` | n/a | yes |
-| public\_subnet\_tag | A string tag to identity the public sub-net to use | `string` | n/a | yes |
-| ssh\_cidrs | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a | yes |
-| vpc\_cidr | The CIDR range to identity the VPC to use | `string` | n/a | yes |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| autoscaling | Details of autoscaling |
-| launch\_conf | Details of Launch Configuration |
-| lb | Details of the load balancer |
-| security\_group | Details of the Security Group |
-| security\_group\_lb | Details of the Security Group of the load balancer |
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+Error: no lines in file
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Help
@@ -169,9 +139,9 @@ under the License.
 [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
 [logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
 [website]: https://slalom.com
-[github]: https://github.com/jameswoolfenden
+[linkedin]: https://www.linkedin.com/in/jameswoolfenden/
 [linkedin]: https://www.linkedin.com/company/slalom-consulting/
-[twitter]: https://twitter.com/Slalom
+[twitter]: https://twitter.com/JimWoolfenden
 [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-elk&url=https://github.com/JamesWoolfenden/terraform-aws-elk
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-elk&url=https://github.com/JamesWoolfenden/terraform-aws-elk
 [share_reddit]: https://reddit.com/submit/?url=https://github.com/JamesWoolfenden/terraform-aws-elk
