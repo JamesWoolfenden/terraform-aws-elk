@@ -61,7 +61,6 @@ ssh -i mynew_key ec2-user@10.22.7.233
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 ## Requirements
 
 No requirements.
@@ -69,33 +68,33 @@ No requirements.
 ## Providers
 
 | Name | Version |
-| ---- | ------- |
-| aws  | n/a     |
+|------|---------|
+| aws | n/a |
 
 ## Inputs
 
-| Name               | Description                                         | Type           | Default                                                                          | Required |
-| ------------------ | --------------------------------------------------- | -------------- | -------------------------------------------------------------------------------- | :------: |
-| ami_name           | Partial string to match the target AMI              | `string`       | n/a                                                                              |   yes    |
-| asg                | Settings to ensure that there's always an instance  | `map`          | <pre>{<br> "max_size": 1,<br> "min_size": 1,<br> "name": "ELK server"<br>}</pre> |    no    |
-| common_tags        | A set of tags                                       | `map`          | n/a                                                                              |   yes    |
-| encrypted          | Root block device encryption                        | `bool`         | `true`                                                                           |    no    |
-| ingress_cidrs      | A range that is allowed to access ELK stack         | `list(string)` | n/a                                                                              |   yes    |
-| instance_type      | The AWS instance size for the ELK server            | `string`       | n/a                                                                              |   yes    |
-| private_subnet_tag | A string tag to identity the private sub-net to use | `string`       | n/a                                                                              |   yes    |
-| public_subnet_tag  | A string tag to identity the public sub-net to use  | `string`       | n/a                                                                              |   yes    |
-| ssh_cidrs          | A range that is allowed to ssh on to the ELK stack  | `list(string)` | n/a                                                                              |   yes    |
-| vpc_cidr           | The CIDR range to identity the VPC to use           | `string`       | n/a                                                                              |   yes    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| ami\_name | Partial string to match the target AMI | `string` | n/a | yes |
+| asg | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}</pre> | no |
+| common\_tags | A set of tags | `map` | n/a | yes |
+| encrypted | Root block device encryption | `bool` | `true` | no |
+| ingress\_cidrs | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
+| instance\_type | The AWS instance size for the ELK server | `string` | n/a | yes |
+| private\_subnet\_tag | A string tag to identity the private sub-net to use | `string` | n/a | yes |
+| public\_subnet\_tag | A string tag to identity the public sub-net to use | `string` | n/a | yes |
+| ssh\_cidrs | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a | yes |
+| vpc\_cidr | The CIDR range to identity the VPC to use | `string` | n/a | yes |
 
 ## Outputs
 
-| Name              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| autoscaling       | Details of autoscaling                             |
-| launch_conf       | Details of Launch Configuration                    |
-| lb                | Details of the load balancer                       |
-| security_group    | Details of the Security Group                      |
-| security_group_lb | Details of the Security Group of the load balancer |
+| Name | Description |
+|------|-------------|
+| autoscaling | Details of autoscaling |
+| launch\_conf | Details of Launch Configuration |
+| lb | Details of the load balancer |
+| security\_group | Details of the Security Group |
+| security\_group\_lb | Details of the Security Group of the load balancer |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
