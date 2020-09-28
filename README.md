@@ -1,5 +1,3 @@
-[![Slalom][logo]](https://slalom.com)
-
 # terraform-aws-elk
 
 [![Build Status](https://github.com/JamesWoolfenden/terraform-aws-elk/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-aws-elk)
@@ -18,7 +16,7 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 Build you AMI's first. The example uses HCL2 which is in beta, you will have to add your own region,vpc_id and subnet_id. Your subnet needs to ssh'able.
 
-In the *Packer* folder :
+In the _Packer_ folder :
 
 ```cli
 $ packer build .\packer\
@@ -55,7 +53,7 @@ module "elk" {
 
 ## Check instance
 
-This instance[and my user] is set-up to use *ec2-instance-connect*.
+This instance[and my user] is set-up to use _ec2-instance-connect_.
 
 ```cli
 aws ec2-instance-connect send-ssh-public-key --region us-west-2 --instance-id i-0aa77051c763cd094 --availability-zone us-west-2b --instance-os-user ec2-user --ssh-public-key file://mynew_key.pub
@@ -63,6 +61,7 @@ ssh -i mynew_key ec2-user@10.22.7.233
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Requirements
 
 No requirements.
@@ -70,33 +69,33 @@ No requirements.
 ## Providers
 
 | Name | Version |
-|------|---------|
-| aws | n/a |
+| ---- | ------- |
+| aws  | n/a     |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| ami\_name | Partial string to match the target AMI | `string` | n/a | yes |
-| asg | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}</pre> | no |
-| common\_tags | A set of tags | `map` | n/a | yes |
-| encrypted | Root block device encryption | `bool` | `true` | no |
-| ingress\_cidrs | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
-| instance\_type | The AWS instance size for the ELK server | `string` | n/a | yes |
-| private\_subnet\_tag | A string tag to identity the private sub-net to use | `string` | n/a | yes |
-| public\_subnet\_tag | A string tag to identity the public sub-net to use | `string` | n/a | yes |
-| ssh\_cidrs | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a | yes |
-| vpc\_cidr | The CIDR range to identity the VPC to use | `string` | n/a | yes |
+| Name               | Description                                         | Type           | Default                                                                          | Required |
+| ------------------ | --------------------------------------------------- | -------------- | -------------------------------------------------------------------------------- | :------: |
+| ami_name           | Partial string to match the target AMI              | `string`       | n/a                                                                              |   yes    |
+| asg                | Settings to ensure that there's always an instance  | `map`          | <pre>{<br> "max_size": 1,<br> "min_size": 1,<br> "name": "ELK server"<br>}</pre> |    no    |
+| common_tags        | A set of tags                                       | `map`          | n/a                                                                              |   yes    |
+| encrypted          | Root block device encryption                        | `bool`         | `true`                                                                           |    no    |
+| ingress_cidrs      | A range that is allowed to access ELK stack         | `list(string)` | n/a                                                                              |   yes    |
+| instance_type      | The AWS instance size for the ELK server            | `string`       | n/a                                                                              |   yes    |
+| private_subnet_tag | A string tag to identity the private sub-net to use | `string`       | n/a                                                                              |   yes    |
+| public_subnet_tag  | A string tag to identity the public sub-net to use  | `string`       | n/a                                                                              |   yes    |
+| ssh_cidrs          | A range that is allowed to ssh on to the ELK stack  | `list(string)` | n/a                                                                              |   yes    |
+| vpc_cidr           | The CIDR range to identity the VPC to use           | `string`       | n/a                                                                              |   yes    |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| autoscaling | Details of autoscaling |
-| launch\_conf | Details of Launch Configuration |
-| lb | Details of the load balancer |
-| security\_group | Details of the Security Group |
-| security\_group\_lb | Details of the Security Group of the load balancer |
+| Name              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| autoscaling       | Details of autoscaling                             |
+| launch_conf       | Details of Launch Configuration                    |
+| lb                | Details of the load balancer                       |
+| security_group    | Details of the Security Group                      |
+| security_group_lb | Details of the Security Group of the load balancer |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -110,13 +109,13 @@ ps -p 1
 
 ### Configuration
 
-Ensure in *elasticsearch.yml*
+Ensure in _elasticsearch.yml_
 
 ```cli
 network.host: 0.0.0.0
 ```
 
-and in *kibana.yml*
+and in _kibana.yml_
 
 ```cli
 server.host: <servers ip>
@@ -140,7 +139,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
+Copyright © 2019-2020 James Woolfenden
 
 ## License
 
@@ -149,19 +148,19 @@ Copyright © 2019-2020 [Slalom, LLC](https://slalom.com)
 See [LICENSE](LICENSE) for full details.
 
 Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
+or more contributor license agreements. See the NOTICE file
 distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
+regarding copyright ownership. The ASF licenses this file
 to you under the Apache License, Version 2.0 (the
 "License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
+with the License. You may obtain a copy of the License at
 
 <https://www.apache.org/licenses/LICENSE-2.0>
 
 Unless required by applicable law or agreed to in writing,
 software distributed under the License is distributed on an
 "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
+KIND, either express or implied. See the License for the
 specific language governing permissions and limitations
 under the License.
 
@@ -171,10 +170,8 @@ under the License.
 
 [jameswoolfenden_homepage]: https://github.com/jameswoolfenden
 [jameswoolfenden_avatar]: https://github.com/jameswoolfenden.png?size=150
-[logo]: https://gist.githubusercontent.com/JamesWoolfenden/5c457434351e9fe732ca22b78fdd7d5e/raw/15933294ae2b00f5dba6557d2be88f4b4da21201/slalom-logo.png
-[website]: https://slalom.com
+[github]: https://github.com/jameswoolfenden
 [linkedin]: https://www.linkedin.com/in/jameswoolfenden/
-[linkedin]: https://www.linkedin.com/company/slalom-consulting/
 [twitter]: https://twitter.com/JimWoolfenden
 [share_twitter]: https://twitter.com/intent/tweet/?text=terraform-aws-elk&url=https://github.com/JamesWoolfenden/terraform-aws-elk
 [share_linkedin]: https://www.linkedin.com/shareArticle?mini=true&title=terraform-aws-elk&url=https://github.com/JamesWoolfenden/terraform-aws-elk
