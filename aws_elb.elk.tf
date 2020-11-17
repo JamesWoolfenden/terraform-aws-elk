@@ -1,5 +1,6 @@
 resource "aws_elb" "elk" {
-  name    = "elk-elb"
+  #checkov:skip=CKV_AWS_92: "Ensure the ELB has access logging enabled"
+  name    = var.elb_name
   subnets = data.aws_subnet_ids.public.ids
 
   listener {
@@ -17,7 +18,6 @@ resource "aws_elb" "elk" {
     interval            = 30
   }
 
-  #instances                   = ["${aws_instance.foo.id}"]
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true

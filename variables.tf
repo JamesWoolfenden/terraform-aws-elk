@@ -44,3 +44,9 @@ variable "encrypted" {
   type        = bool
   default     = true
 }
+
+variable "elb_name" {
+  type        = string
+  default     = "elk-elb"
+  description = "(optional) describe your variable"
+}

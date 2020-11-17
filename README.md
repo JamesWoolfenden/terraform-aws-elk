@@ -81,6 +81,7 @@ No requirements.
 | ami\_name | Partial string to match the target AMI | `string` | n/a | yes |
 | asg | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}</pre> | no |
 | common\_tags | A set of tags | `map` | n/a | yes |
+| elb\_name | (optional) describe your variable | `string` | `"elk-elb"` | no |
 | encrypted | Root block device encryption | `bool` | `true` | no |
 | ingress\_cidrs | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
 | instance\_type | The AWS instance size for the ELK server | `string` | n/a | yes |
