@@ -32,24 +32,27 @@ $ packer build ./packer/
 
 <https://www.elastic.co/guide/en/elastic-stack-get-started/7.6/get-started-elastic-stack.html#install-elasticsearch>
 
+With an AMI built the Terraform module will pick up the latest build version from your account.
+
 ## Usage
 
-Include this repository as a module in your existing Terraform code:
+To use this module add **module.elk.tf** as below into your Terraform code:
 
 ```hcl
 module "elk" {
-  source        = "JamesWoolfenden/elk/aws
-  version       = "0.2.6"
-  ami_name      = var.ami_name
-  ingress_cidrs = ["0.0.0.0/0"]
-  ssh_cidrs     = ["0.0.0.0/0"]
-  instance_type = var.instance_type
-  common_tags   = var.common_tags
-  private_subnet_tag    = var.private_subnet_tag
-  vpc_cidr      = var.vpc_cidr
-}
+  source              = "JamesWoolfenden/elk/aws
+  version             = "0.2.15"
+  ami_name            = var.ami_name
+  ingress_cidrs       = ["0.0.0.0/0"]
+  ssh_cidrs           = ["0.0.0.0/0"]
+  instance_type       = var.instance_type
+  common_tags         = var.common_tags
+  private_subnet_tag  = var.private_subnet_tag
+  vpc_cidr            = var.vpc_cidr
 }
 ```
+
+Replace 0.0.0.0/0 CIDRS with your own ranges, for more implmentation details see the full example in /example/examplea.
 
 ## Check instance
 
