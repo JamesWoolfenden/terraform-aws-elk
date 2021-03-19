@@ -1,5 +1,5 @@
 variable "common_tags" {
-  type        = map
+  type        = map(any)
   description = "A set of tags"
 }
 
