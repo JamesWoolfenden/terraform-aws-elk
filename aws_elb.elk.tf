@@ -1,5 +1,6 @@
 resource "aws_elb" "elk" {
-  #checkov:skip=CKV_AWS_92: "Ensure the ELB has access logging enabled"
+  # checkov:skip=CKV_AWS_127: its an http lb
+  # checkov:skip=CKV_AWS_92: "Ensure the ELB has access logging enabled"
   name    = var.elb_name
   subnets = data.aws_subnet_ids.public.ids
 

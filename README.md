@@ -76,54 +76,56 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
-No Modules.
+No modules.
 
 ## Resources
 
-| Name |
-|------|
-| [aws_ami](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) |
-| [aws_autoscaling_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_attachment) |
-| [aws_autoscaling_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group) |
-| [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) |
-| [aws_elb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elb) |
-| [aws_iam_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile) |
-| [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) |
-| [aws_iam_role_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) |
-| [aws_launch_configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration) |
-| [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) |
-| [aws_subnet_ids](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet_ids) |
-| [aws_vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) |
+| Name | Type |
+|------|------|
+| [aws_autoscaling_attachment.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_attachment) | resource |
+| [aws_autoscaling_group.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group) | resource |
+| [aws_elb.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elb) | resource |
+| [aws_iam_instance_profile.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile) | resource |
+| [aws_iam_role.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_launch_configuration.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration) | resource |
+| [aws_security_group.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
+| [aws_security_group.lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
+| [aws_ami.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_subnet_ids.private](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet_ids) | data source |
+| [aws_subnet_ids.public](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet_ids) | data source |
+| [aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| ami\_name | Partial string to match the target AMI | `string` | n/a | yes |
-| asg | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}</pre> | no |
-| common\_tags | A set of tags | `map(any)` | n/a | yes |
-| elb\_name | (optional) describe your variable | `string` | `"elk-elb"` | no |
-| encrypted | Root block device encryption | `bool` | `true` | no |
-| ingress\_cidrs | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
-| instance\_type | The AWS instance size for the ELK server | `string` | n/a | yes |
-| private\_subnet\_tag | A string tag to identity the private sub-net to use | `string` | n/a | yes |
-| public\_subnet\_tag | A string tag to identity the public sub-net to use | `string` | n/a | yes |
-| ssh\_cidrs | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a | yes |
-| vpc\_cidr | The CIDR range to identity the VPC to use | `string` | n/a | yes |
+| <a name="input_ami_name"></a> [ami\_name](#input\_ami\_name) | Partial string to match the target AMI | `string` | n/a | yes |
+| <a name="input_asg"></a> [asg](#input\_asg) | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}</pre> | no |
+| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | A set of tags | `map(any)` | n/a | yes |
+| <a name="input_elb_name"></a> [elb\_name](#input\_elb\_name) | (optional) describe your variable | `string` | `"elk-elb"` | no |
+| <a name="input_encrypted"></a> [encrypted](#input\_encrypted) | Root block device encryption | `bool` | `true` | no |
+| <a name="input_ingress_cidrs"></a> [ingress\_cidrs](#input\_ingress\_cidrs) | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
+| <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The AWS instance size for the ELK server | `string` | n/a | yes |
+| <a name="input_private_subnet_tag"></a> [private\_subnet\_tag](#input\_private\_subnet\_tag) | A string tag to identity the private sub-net to use | `string` | n/a | yes |
+| <a name="input_public_subnet_tag"></a> [public\_subnet\_tag](#input\_public\_subnet\_tag) | A string tag to identity the public sub-net to use | `string` | n/a | yes |
+| <a name="input_ssh_cidrs"></a> [ssh\_cidrs](#input\_ssh\_cidrs) | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a | yes |
+| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | The CIDR range to identity the VPC to use | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| autoscaling | Details of autoscaling |
-| launch\_conf | Details of Launch Configuration |
-| lb | Details of the load balancer |
-| security\_group | Details of the Security Group |
-| security\_group\_lb | Details of the Security Group of the load balancer |
+| <a name="output_autoscaling"></a> [autoscaling](#output\_autoscaling) | Details of autoscaling |
+| <a name="output_launch_conf"></a> [launch\_conf](#output\_launch\_conf) | Details of Launch Configuration |
+| <a name="output_lb"></a> [lb](#output\_lb) | Details of the load balancer |
+| <a name="output_security_group"></a> [security\_group](#output\_security\_group) | Details of the Security Group |
+| <a name="output_security_group_lb"></a> [security\_group\_lb](#output\_security\_group\_lb) | Details of the Security Group of the load balancer |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Help
