@@ -8,6 +8,7 @@ resource "aws_security_group" "lb" {
     to_port     = 80
     protocol    = "tcp"
     description = "kibana"
+    # tfsec:ignore:AWS008
     cidr_blocks = var.ingress_cidrs
   }
 
@@ -17,6 +18,7 @@ resource "aws_security_group" "lb" {
     to_port     = 443
     protocol    = "tcp"
     description = "kibana"
+    # tfsec:ignore:AWS008
     cidr_blocks = var.ingress_cidrs
   }
 
@@ -30,9 +32,10 @@ resource "aws_security_group" "lb" {
 
   # outbound
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    # tfsec:ignore:AWS009
     cidr_blocks = ["0.0.0.0/0"]
   }
 

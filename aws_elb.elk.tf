@@ -1,3 +1,4 @@
+# tfsec:ignore:AWS005
 resource "aws_elb" "elk" {
   # checkov:skip=CKV_AWS_127: its an http lb
   # checkov:skip=CKV_AWS_92: "Ensure the ELB has access logging enabled"

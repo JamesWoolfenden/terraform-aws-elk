@@ -8,6 +8,7 @@ resource "aws_security_group" "elk" {
     to_port     = 9200
     protocol    = "tcp"
     description = "elasticsearch"
+    # tfsec:ignore:AWS008
     cidr_blocks = var.ingress_cidrs
   }
 
@@ -16,6 +17,7 @@ resource "aws_security_group" "elk" {
     to_port     = 5044
     protocol    = "tcp"
     description = "logstash"
+    # tfsec:ignore:AWS008
     cidr_blocks = var.ingress_cidrs
   }
 
@@ -25,7 +27,8 @@ resource "aws_security_group" "elk" {
     protocol        = "tcp"
     description     = "kibana"
     security_groups = [aws_security_group.lb.id]
-    cidr_blocks     = var.ingress_cidrs
+    # tfsec:ignore:AWS008
+    cidr_blocks = var.ingress_cidrs
   }
 
 
@@ -45,9 +48,10 @@ resource "aws_security_group" "elk" {
   }
   # outbound
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    # tfsec:ignore:AWS009
     cidr_blocks = ["0.0.0.0/0"]
   }
 
