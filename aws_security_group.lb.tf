@@ -1,7 +1,7 @@
 resource "aws_security_group" "lb" {
   name        = "elk-lb"
   description = "for the lb"
-  vpc_id      = data.aws_vpc.vpc.id
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port   = 80
@@ -38,6 +38,4 @@ resource "aws_security_group" "lb" {
     # tfsec:ignore:AWS009
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-  tags = var.common_tags
 }

@@ -50,13 +50,36 @@ module "elk" {
   ingress_cidrs       = ["0.0.0.0/0"]
   ssh_cidrs           = ["0.0.0.0/0"]
   instance_type       = var.instance_type
-  common_tags         = var.common_tags
   private_subnet_tag  = var.private_subnet_tag
   vpc_cidr            = var.vpc_cidr
 }
 ```
 
 Replace 0.0.0.0/0 CIDRS with your own ranges, for more implmentation details see the full example in /example/examplea.
+
+## Costs
+
+```text
+Monthly cost estimate
+
+Project: .
+
+ Name                                                    Monthly Qty  Unit         Monthly Cost
+
+ module.elk.aws_autoscaling_group.elk
+ └─ module.elk.aws_launch_configuration.elk
+    ├─ Instance usage (Linux/UNIX, on-demand, t2.large)            0  hours               $0.00
+    ├─ EC2 detailed monitoring                                     0  metrics             $0.00
+    └─ root_block_device
+       └─ Storage (general purpose SSD, gp2)                       0  GB-months           $0.00
+
+ module.elk.aws_elb.elk
+ ├─ Classic load balancer                                        730  hours              $21.46
+ └─ Data processed                                       Cost depends on usage: $0.0084 per GB
+
+ PROJECT TOTAL                                                                           $21.46
+
+```
 
 ## Check instance
 
@@ -97,9 +120,6 @@ No modules.
 | [aws_security_group.lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 | [aws_ami.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
-| [aws_subnet_ids.private](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet_ids) | data source |
-| [aws_subnet_ids.public](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet_ids) | data source |
-| [aws_vpc.vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
 
 ## Inputs
 
@@ -107,15 +127,14 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_ami_name"></a> [ami\_name](#input\_ami\_name) | Partial string to match the target AMI | `string` | n/a | yes |
 | <a name="input_asg"></a> [asg](#input\_asg) | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}</pre> | no |
-| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | A set of tags | `map(any)` | n/a | yes |
 | <a name="input_elb_name"></a> [elb\_name](#input\_elb\_name) | (optional) describe your variable | `string` | `"elk-elb"` | no |
 | <a name="input_encrypted"></a> [encrypted](#input\_encrypted) | Root block device encryption | `bool` | `true` | no |
 | <a name="input_ingress_cidrs"></a> [ingress\_cidrs](#input\_ingress\_cidrs) | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The AWS instance size for the ELK server | `string` | n/a | yes |
-| <a name="input_private_subnet_tag"></a> [private\_subnet\_tag](#input\_private\_subnet\_tag) | A string tag to identity the private sub-net to use | `string` | n/a | yes |
-| <a name="input_public_subnet_tag"></a> [public\_subnet\_tag](#input\_public\_subnet\_tag) | A string tag to identity the public sub-net to use | `string` | n/a | yes |
 | <a name="input_ssh_cidrs"></a> [ssh\_cidrs](#input\_ssh\_cidrs) | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a | yes |
-| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | The CIDR range to identity the VPC to use | `string` | n/a | yes |
+| <a name="input_subnet_private"></a> [subnet\_private](#input\_subnet\_private) | n/a | `any` | n/a | yes |
+| <a name="input_subnet_public"></a> [subnet\_public](#input\_subnet\_public) | n/a | `any` | n/a | yes |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | n/a | `string` | n/a | yes |
 
 ## Outputs
 

@@ -1,7 +1,7 @@
 resource "aws_security_group" "elk" {
   name        = "elk-server"
   description = "All all Elasticsearch traffic"
-  vpc_id      = data.aws_vpc.vpc.id
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port   = 9200
@@ -54,6 +54,4 @@ resource "aws_security_group" "elk" {
     # tfsec:ignore:AWS009
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-  tags = var.common_tags
 }

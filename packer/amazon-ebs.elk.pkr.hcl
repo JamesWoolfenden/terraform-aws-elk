@@ -1,6 +1,6 @@
 source "amazon-ebs" "elk" {
   source_ami_filter {
-    filters {
+    filters={
       virtualization-type= "hvm"
       name= "amzn2-ami-hvm-*-x86_64-ebs"
       root-device-type= "ebs"
@@ -19,7 +19,7 @@ source "amazon-ebs" "elk" {
   vpc_id         = var.vpc_id
   subnet_id      = var.subnet_id
   associate_public_ip_address= true
-  run_tags {
+  run_tags={
     Name= "amazon-elk"
     Application= "ELK"
   }

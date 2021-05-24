@@ -1,23 +1,4 @@
-variable "common_tags" {
-  type        = map(any)
-  description = "A set of tags"
-}
 
-variable "private_subnet_tag" {
-  description = "A string tag to identity the private sub-net to use"
-  type        = string
-}
-
-variable "public_subnet_tag" {
-  description = "A string tag to identity the public sub-net to use"
-  type        = string
-}
-
-
-variable "vpc_cidr" {
-  description = "The CIDR range to identity the VPC to use"
-  type        = string
-}
 
 variable "instance_type" {
   description = "The AWS instance size for the ELK server"
@@ -49,4 +30,14 @@ variable "elb_name" {
   type        = string
   default     = "elk-elb"
   description = "(optional) describe your variable"
+}
+
+variable "vpc_id" {
+  type = string
+}
+
+variable "subnet_public" {
+}
+
+variable "subnet_private" {
 }

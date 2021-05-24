@@ -3,7 +3,7 @@ resource "aws_elb" "elk" {
   # checkov:skip=CKV_AWS_127: its an http lb
   # checkov:skip=CKV_AWS_92: "Ensure the ELB has access logging enabled"
   name    = var.elb_name
-  subnets = data.aws_subnet_ids.public.ids
+  subnets = var.subnet_public.ids
 
   listener {
     instance_port     = 5601
@@ -25,5 +25,4 @@ resource "aws_elb" "elk" {
   connection_draining         = true
   connection_draining_timeout = 400
   security_groups             = [aws_security_group.lb.id]
-  tags                        = var.common_tags
 }

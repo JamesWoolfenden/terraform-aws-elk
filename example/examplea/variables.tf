@@ -1,7 +1,3 @@
-variable "common_tags" {
-  type        = map(any)
-  description = "A set of tags"
-}
 
 variable "private_subnet_tag" {
   type        = string
