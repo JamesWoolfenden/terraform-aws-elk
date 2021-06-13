@@ -1,5 +1,5 @@
 instance_type      = "t2.large"
 ami_name           = "elk-1-*"
-private_subnet_tag = "Private"
+private_subnet_tag = "Public"
 public_subnet_tag  = "Public"
 vpc_cidr           = "10.0.0.0/21"
