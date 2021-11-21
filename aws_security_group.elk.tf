@@ -41,16 +41,18 @@ resource "aws_security_group" "elk" {
   }
 
   ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
-    self      = true
+    description = "Open to self"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    self        = true
   }
   # outbound
   egress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
+    description = "Allow outbound"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     # tfsec:ignore:AWS009
     cidr_blocks = ["0.0.0.0/0"]
   }
