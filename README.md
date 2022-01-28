@@ -91,16 +91,15 @@ ssh -i mynew_key ec2-user@10.22.7.233
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 ## Requirements
 
 No requirements.
 
 ## Providers
 
-| Name                                             | Version |
-| ------------------------------------------------ | ------- |
-| <a name="provider_aws"></a> [aws](#provider_aws) | n/a     |
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
@@ -108,45 +107,44 @@ No modules.
 
 ## Resources
 
-| Name                                                                                                                                         | Type        |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [aws_autoscaling_attachment.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_attachment)         | resource    |
-| [aws_autoscaling_group.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group)                   | resource    |
-| [aws_elb.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elb)                                               | resource    |
-| [aws_iam_instance_profile.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile)             | resource    |
-| [aws_iam_role.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role)                                     | resource    |
-| [aws_iam_role_policy_attachment.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource    |
-| [aws_launch_configuration.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration)             | resource    |
-| [aws_security_group.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)                         | resource    |
-| [aws_security_group.lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)                          | resource    |
-| [aws_ami.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami)                                            | data source |
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)                | data source |
+| Name | Type |
+|------|------|
+| [aws_autoscaling_attachment.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_attachment) | resource |
+| [aws_autoscaling_group.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group) | resource |
+| [aws_elb.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elb) | resource |
+| [aws_iam_instance_profile.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile) | resource |
+| [aws_iam_role.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_launch_configuration.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration) | resource |
+| [aws_security_group.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
+| [aws_security_group.lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
+| [aws_ami.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 
 ## Inputs
 
-| Name                                                                        | Description                                        | Type           | Default                                                                          | Required |
-| --------------------------------------------------------------------------- | -------------------------------------------------- | -------------- | -------------------------------------------------------------------------------- | :------: |
-| <a name="input_ami_name"></a> [ami_name](#input_ami_name)                   | Partial string to match the target AMI             | `string`       | n/a                                                                              |   yes    |
-| <a name="input_asg"></a> [asg](#input_asg)                                  | Settings to ensure that there's always an instance | `map`          | <pre>{<br> "max_size": 1,<br> "min_size": 1,<br> "name": "ELK server"<br>}</pre> |    no    |
-| <a name="input_elb_name"></a> [elb_name](#input_elb_name)                   | (optional) describe your variable                  | `string`       | `"elk-elb"`                                                                      |    no    |
-| <a name="input_encrypted"></a> [encrypted](#input_encrypted)                | Root block device encryption                       | `bool`         | `true`                                                                           |    no    |
-| <a name="input_ingress_cidrs"></a> [ingress_cidrs](#input_ingress_cidrs)    | A range that is allowed to access ELK stack        | `list(string)` | n/a                                                                              |   yes    |
-| <a name="input_instance_type"></a> [instance_type](#input_instance_type)    | The AWS instance size for the ELK server           | `string`       | n/a                                                                              |   yes    |
-| <a name="input_ssh_cidrs"></a> [ssh_cidrs](#input_ssh_cidrs)                | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a                                                                              |   yes    |
-| <a name="input_subnet_private"></a> [subnet_private](#input_subnet_private) | n/a                                                | `any`          | n/a                                                                              |   yes    |
-| <a name="input_subnet_public"></a> [subnet_public](#input_subnet_public)    | n/a                                                | `any`          | n/a                                                                              |   yes    |
-| <a name="input_vpc_id"></a> [vpc_id](#input_vpc_id)                         | n/a                                                | `string`       | n/a                                                                              |   yes    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_ami_name"></a> [ami\_name](#input\_ami\_name) | Partial string to match the target AMI | `string` | n/a | yes |
+| <a name="input_asg"></a> [asg](#input\_asg) | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}</pre> | no |
+| <a name="input_elb_name"></a> [elb\_name](#input\_elb\_name) | (optional) describe your variable | `string` | `"elk-elb"` | no |
+| <a name="input_encrypted"></a> [encrypted](#input\_encrypted) | Root block device encryption | `bool` | `true` | no |
+| <a name="input_ingress_cidrs"></a> [ingress\_cidrs](#input\_ingress\_cidrs) | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
+| <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The AWS instance size for the ELK server | `string` | n/a | yes |
+| <a name="input_ssh_cidrs"></a> [ssh\_cidrs](#input\_ssh\_cidrs) | A range that is allowed to ssh on to the ELK stack | `list(string)` | n/a | yes |
+| <a name="input_subnet_private"></a> [subnet\_private](#input\_subnet\_private) | n/a | `any` | n/a | yes |
+| <a name="input_subnet_public"></a> [subnet\_public](#input\_subnet\_public) | n/a | `any` | n/a | yes |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | n/a | `string` | n/a | yes |
 
 ## Outputs
 
-| Name                                                                                   | Description                                        |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| <a name="output_autoscaling"></a> [autoscaling](#output_autoscaling)                   | Details of autoscaling                             |
-| <a name="output_launch_conf"></a> [launch_conf](#output_launch_conf)                   | Details of Launch Configuration                    |
-| <a name="output_lb"></a> [lb](#output_lb)                                              | Details of the load balancer                       |
-| <a name="output_security_group"></a> [security_group](#output_security_group)          | Details of the Security Group                      |
-| <a name="output_security_group_lb"></a> [security_group_lb](#output_security_group_lb) | Details of the Security Group of the load balancer |
-
+| Name | Description |
+|------|-------------|
+| <a name="output_autoscaling"></a> [autoscaling](#output\_autoscaling) | Details of autoscaling |
+| <a name="output_launch_conf"></a> [launch\_conf](#output\_launch\_conf) | Details of Launch Configuration |
+| <a name="output_lb"></a> [lb](#output\_lb) | Details of the load balancer |
+| <a name="output_security_group"></a> [security\_group](#output\_security\_group) | Details of the Security Group |
+| <a name="output_security_group_lb"></a> [security\_group\_lb](#output\_security\_group\_lb) | Details of the Security Group of the load balancer |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Help
