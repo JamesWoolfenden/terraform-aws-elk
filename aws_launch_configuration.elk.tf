@@ -13,4 +13,9 @@ resource "aws_launch_configuration" "elk" {
   root_block_device {
     encrypted = var.encrypted
   }
+
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
 }
