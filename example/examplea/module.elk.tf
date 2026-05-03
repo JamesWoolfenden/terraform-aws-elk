@@ -4,8 +4,8 @@ module "elk" {
   ingress_cidrs  = ["0.0.0.0/0"]
   ssh_cidrs      = [module.ip.cidr]
   instance_type  = var.instance_type
-  subnet_private = data.aws_subnet_ids.private
-  subnet_public  = data.aws_subnet_ids.public
+  subnet_private = data.aws_subnets.private
+  subnet_public  = data.aws_subnets.public
   vpc_id         = data.aws_vpc.vpc.id
 }
 module "ip" {
