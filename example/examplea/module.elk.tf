@@ -10,6 +10,5 @@ module "elk" {
 }
 
 module "ip" {
-  source  = "JamesWoolfenden/ip/http"
-  version = "0.3.7"
+  source = "git::https://github.com/JamesWoolfenden/terraform-http-ip.git?ref=a6cf071d14365133f48ed161812c14b00ad3c692" #v0.3.7
 }
