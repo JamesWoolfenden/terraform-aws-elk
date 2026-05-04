@@ -11,7 +11,6 @@ resource "aws_autoscaling_group" "elk" {
   }
 
 }
-
 variable "asg" {
   description = "Settings to ensure that there's always an instance"
   default = {

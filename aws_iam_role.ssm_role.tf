@@ -16,12 +16,10 @@ resource "aws_iam_role" "elk" {
 }
 EOF
 }
-
 resource "aws_iam_role_policy_attachment" "elk" {
   role       = aws_iam_role.elk.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
 }
-
 resource "aws_iam_instance_profile" "elk" {
   name = "elk"
   role = aws_iam_role.elk.name

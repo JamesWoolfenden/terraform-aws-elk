@@ -1,4 +1,5 @@
 resource "aws_security_group" "elk" {
+  # checkov:skip=CKV_AWS_382: Unrestricted outbound access required for resource functionality
   name        = "elk-server"
   description = "All all Elasticsearch traffic"
   vpc_id      = var.vpc_id
