@@ -172,13 +172,16 @@ resource "aws_iam_policy" "terraform_pike" {
                 "autoscaling:CreateLaunchConfiguration",
                 "autoscaling:DeleteAutoScalingGroup",
                 "autoscaling:DeleteLaunchConfiguration",
+                "autoscaling:Describe*",
                 "autoscaling:DescribeAutoScalingGroups",
                 "autoscaling:DescribeLaunchConfigurations",
                 "autoscaling:DescribeScalingActivities",
                 "autoscaling:DetachLoadBalancers",
                 "autoscaling:UpdateAutoScalingGroup"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor1",
@@ -187,15 +190,22 @@ resource "aws_iam_policy" "terraform_pike" {
                 "ec2:AuthorizeSecurityGroupEgress",
                 "ec2:AuthorizeSecurityGroupIngress",
                 "ec2:CreateSecurityGroup",
+                "ec2:DeleteNetworkInterface",
                 "ec2:DeleteSecurityGroup",
+                "ec2:Describe*",
                 "ec2:DescribeAccountAttributes",
                 "ec2:DescribeImages",
                 "ec2:DescribeNetworkInterfaces",
                 "ec2:DescribeSecurityGroups",
+                "ec2:DetachNetworkInterface",
+                "ec2:Get*",
                 "ec2:RevokeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress"
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:RunInstances"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor2",
@@ -208,9 +218,12 @@ resource "aws_iam_policy" "terraform_pike" {
                 "elasticloadbalancing:DescribeLoadBalancerAttributes",
                 "elasticloadbalancing:DescribeLoadBalancers",
                 "elasticloadbalancing:DescribeTags",
-                "elasticloadbalancing:ModifyLoadBalancerAttributes"
+                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "elasticloadbalancing:SetSecurityGroups"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor3",
@@ -231,7 +244,33 @@ resource "aws_iam_policy" "terraform_pike" {
                 "iam:PassRole",
                 "iam:RemoveRoleFromInstanceProfile"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor4",
+            "Effect": "Allow",
+            "Action": [
+                "managed-fleets:DeleteAutoScalingGroup",
+                "managed-fleets:DeregisterAutoScalingGroup",
+                "managed-fleets:Get*",
+                "managed-fleets:RegisterAutoScalingGroup",
+                "managed-fleets:UpdateAutoScalingGroup"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor5",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:Get*"
+            ],
+            "Resource": [
+                "*"
+            ]
         }
     ]
 })
