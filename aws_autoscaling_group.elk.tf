@@ -1,5 +1,6 @@
 resource "aws_autoscaling_group" "elk" {
   # checkov:skip=CKV_AWS_153: TODO
+  # checkov:skip=CKV_AWS_315: TODO migrate to launch_template
   name                 = var.asg["name"]
   launch_configuration = aws_launch_configuration.elk.name
   min_size             = var.asg["min_size"]

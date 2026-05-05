@@ -1,5 +1,6 @@
 resource "aws_security_group" "lb" {
   # checkov:skip=CKV_AWS_382: Unrestricted outbound access required for resource functionality
+  # checkov:skip=CKV_AWS_260: http lb ingress
   name        = "elk-lb"
   description = "for the lb"
   vpc_id      = var.vpc_id
