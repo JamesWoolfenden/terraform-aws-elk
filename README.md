@@ -98,7 +98,7 @@ No requirements.
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
@@ -108,7 +108,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_autoscaling_attachment.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_attachment) | resource |
 | [aws_autoscaling_group.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group) | resource |
 | [aws_elb.elk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elb) | resource |
@@ -124,9 +124,9 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_ami_name"></a> [ami\_name](#input\_ami\_name) | Partial string to match the target AMI | `string` | n/a | yes |
-| <a name="input_asg"></a> [asg](#input\_asg) | Settings to ensure that there's always an instance | `map` | <pre>{<br>  "max_size": 1,<br>  "min_size": 1,<br>  "name": "ELK server"<br>}</pre> | no |
+| <a name="input_asg"></a> [asg](#input\_asg) | Settings to ensure that there's always an instance | `map` | <pre>{<br/>  "max_size": 1,<br/>  "min_size": 1,<br/>  "name": "ELK server"<br/>}</pre> | no |
 | <a name="input_elb_name"></a> [elb\_name](#input\_elb\_name) | (optional) describe your variable | `string` | `"elk-elb"` | no |
 | <a name="input_encrypted"></a> [encrypted](#input\_encrypted) | Root block device encryption | `bool` | `true` | no |
 | <a name="input_ingress_cidrs"></a> [ingress\_cidrs](#input\_ingress\_cidrs) | A range that is allowed to access ELK stack | `list(string)` | n/a | yes |
@@ -139,7 +139,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_autoscaling"></a> [autoscaling](#output\_autoscaling) | Details of autoscaling |
 | <a name="output_launch_conf"></a> [launch\_conf](#output\_launch\_conf) | Details of Launch Configuration |
 | <a name="output_lb"></a> [lb](#output\_lb) | Details of the load balancer |
